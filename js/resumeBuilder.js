@@ -29,7 +29,7 @@ var bio = {
 		"mobile" : "00-123-456-789",
 		"email" : "test@email.com",
 		"github" : "caranuial",
-		"location" : "Bratislava, Slovakia",
+		"location" : "Smizany, Slovakia",
 		"twitter" : "#dontHaveTwitter"
 	},
 	"skills" : [
@@ -115,7 +115,7 @@ var educations = {
 	"schools": [
 		{
 			"name":"Economic University in Bratislava",
-			"location":"Bratislava Slovakia",
+			"location":"Bratislava, Slovakia",
 			"degree":"BA",
 			"major": ["Computer Science", "Economics informatics" ],
 			"dates": "2007-2010",
@@ -123,7 +123,7 @@ var educations = {
 		},
 		{
 			"name":"Economic University in Bratislava",
-			"location":"Bratislava Slovakia",
+			"location":"Bratislava, Slovakia",
 			"degree":"Master",
 			"major": ["Computer Science"],
 			"dates": "2010-2012",
