@@ -35,7 +35,7 @@ var bio = {
 	"skills" : [
 		"PHP", "HTML", "JavaScript"
 	],
-	"bioPic" : "images/fry.jpg"
+	"bioPic" : "images/tardisLogo.png"
 };
 
 bio.display = function() {
@@ -86,18 +86,18 @@ bio.display();
 
 var work = {
 	"jobs" : [{
-		"employer" :  "ATT",
+		"employer" :  "TT",
 		"title" : "Metrics Analyst",
 		"location" : "Bratislava",
-		"dates"  : "2012 - ongoing",
-		"description" : "some random text"
+		"dates"  : "2002 - 2012",
+		"description" : "Numbers numbers numbers"
 	},
 	{
-		"employer" :  "ATT2",
-		"title" : "Metrics Analyst",
-		"location" : "Bratislava",
+		"employer" :  "World",
+		"title" : "King",
+		"location" : "London",
 		"dates"  : "2012 - ongoing",
-		"description" : "some random text"
+		"description" : "King of world."
 	}]
 };
 
@@ -117,7 +117,7 @@ var educations = {
 			"name":"Economic University in Bratislava",
 			"location":"Bratislava, Slovakia",
 			"degree":"BA",
-			"major": ["Computer Science", "Economics informatics" ],
+			"major": ["Computer Science", "Economics informatic" ],
 			"dates": "2007-2010",
 			"url" : "http://euba.sk"
 		},
@@ -136,25 +136,25 @@ var educations = {
 			"school":"Udacity",
 			"dates" : "2014",
 			// Posible improvment - change in helper.js needed
-			//"url":"https://www.udacity.com/course/progress#!/c-ud893-nd"
+			"url":"https://www.udacity.com/course/progress#!/c-ud893-nd"
 		},
 		{
 			"title":"Responsive Images",
 			"school":"Udacity",
 			"dates" : "2014",
-			//"url" : "https://www.udacity.com/course/progress#!/c-ud882-nd"
+			"url" : "https://www.udacity.com/course/progress#!/c-ud882-nd"
 		},
 		{
 			"title":"Intro to HTML and CSS",
 			"school":"Udacity",
 			"dates" : "2014",
-			//"url" : "https://www.udacity.com/course/progress#!/c-ud304-nd"
+			"url" : "https://www.udacity.com/course/progress#!/c-ud304-nd"
 		},
 		{
 			"title":"JavaScript Basics",
 			"school":"Udacity",
 			"dates" : "2014",
-			//"url": "https://www.udacity.com/course/viewer#!/c-ud804-nd"
+			"url": "https://www.udacity.com/course/viewer#!/c-ud804-nd"
 		}
 	]
 }
@@ -165,13 +165,13 @@ var projects ={
 		"title": "Build a Portfolio Site",
 		"dates": "2014",
 		"description": "You will be provided with a design mockup as a PDF-file and must replicate that design in HTML and CSS. You will develop a responsive website that will display images, descriptions and links to each of the portfolio projects you will complete throughout the course of the Front-End Web Developer Nanodegree.",
-		"images": ["images/197x148.gif"]
+		"images": ["images/MainImg.jpg"]
 	},
 	{
 		"title": "Online Resume",
 		"dates": "2014",
 		"description": "You'll demonstrate your mastery of the language's syntax through a series of challenges. Each multipart problem mimics a real-life challenge that front-end developers face. You'll be required to write clean code and to apply your knowledge of variables, objects, JSON, functions and control flow to successfully solve the challenges.",
-		"images": ["images/197x148.gif","images/197x148.gif"]
+		"images": ["images/Resume.jpg"]
 	}
 	]
 }
@@ -269,9 +269,27 @@ educations.display = function() {
 			var formatedSchoolDegree = HTMLschoolDegree.replace("%data%", educations.schools[school].degree);
 			var formatedSchoolDates = HTMLschoolDates.replace("%data%", educations.schools[school].dates);
 			var formatedSchoolLocation = HTMLschoolLocation.replace("%data%", educations.schools[school].location);
-			var formatedSchoolMajor = HTMLschoolMajor.replace("%data%", educations.schools[school].url);
-		
-			$(".education-entry:last").append(formatedSchoolName + formatedSchoolDegree + formatedSchoolDates + formatedSchoolLocation + formatedSchoolMajor);
+			
+			$(".education-entry:last").append(formatedSchoolName + formatedSchoolDegree + formatedSchoolDates + formatedSchoolLocation);
+			
+			var formatedSchoolMajor = "";
+			for (maj in educations.schools[school].major) {
+				if (formatedSchoolMajor != "") {
+					console.log( formatedSchoolMajor );
+					formatedSchoolMajor =  formatedSchoolMajor + ", " + educations.schools[school].major[maj];
+					console.log( formatedSchoolMajor );
+				}
+				else {
+					console.log( formatedSchoolMajor );
+					formatedSchoolMajor = educations.schools[school].major[maj];
+					console.log( formatedSchoolMajor );
+				}
+			}
+			
+			
+			formatedSchoolMajor = HTMLschoolMajor.replace("%data%", formatedSchoolMajor);
+			$(".education-entry:last").append(formatedSchoolMajor);
+			
 		}
 	}
 	
@@ -283,13 +301,13 @@ educations.display = function() {
 			
 			$("#education").append(HTMLschoolStart);
 			
-			var formatedCourseTitle = HTMLonlineTitle.replace("%data%", educations.onlineCourses[onlineCourse].title);
+			var formatedCourseTitle = HTMLonlineTitle.replace("%data%", educations.onlineCourses[onlineCourse].title).replace("#", educations.onlineCourses[onlineCourse].url);
 			var formatedCourseSchool = HTMLonlineSchool.replace("%data%", educations.onlineCourses[onlineCourse].school);
 			var formatedCourseDates = HTMLonlineDates.replace("%data%", educations.onlineCourses[onlineCourse].dates);
 			// Posible improvment - change in helper.js needed - to display links correctly
 			var formatedCourseURL = HTMLonlineURL.replace("%data%", educations.onlineCourses[onlineCourse].url);
 		
-			$(".education-entry:last").append(formatedCourseTitle + formatedCourseSchool + formatedCourseDates + formatedCourseURL );
+			$(".education-entry:last").append(formatedCourseTitle + formatedCourseSchool + formatedCourseDates + "<br>" );
 		}
 	}
 }

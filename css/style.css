@@ -116,13 +116,22 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #111111;
 }
 
 .flex-box {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.flex-box-column{
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column ;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
@@ -148,6 +157,7 @@ ul {
 
 img {
   padding: 10px;
+  width: 197px;
 }
 
 /* Bar chart stuff */
