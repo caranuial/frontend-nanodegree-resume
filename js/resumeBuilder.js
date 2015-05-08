@@ -135,7 +135,6 @@ var educations = {
 			"title":"Responsive Web Design Fundamentals",
 			"school":"Udacity",
 			"dates" : "2014",
-			// Posible improvment - change in helper.js needed
 			"url":"https://www.udacity.com/course/progress#!/c-ud893-nd"
 		},
 		{
@@ -196,13 +195,13 @@ function displayWork(){
 
 displayWork();
 
-/*$(document).click(function(loc) {
+$(document).click(function(loc) {
   // your code goes here
   var x= loc.pageX;
   var y= loc.pageY;
   
   logClicks(x,y);
-});*/
+});
 /*
 $("#main").append(internationalizeButton);
 
